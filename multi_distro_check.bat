@@ -28,7 +28,7 @@ rem Creating the start of the distribution list array. DLSI is starting at slot 
 
 set "DLSI=1"
 
-rem Creating the end of the distribution list array. DLEI is the end of the user array and is determined by what the user puts in
+rem Creating the end of the distribution list array. DLEI is the end of the distribution list array and is determined by what the user puts in
 
 set /P DLEI="How many distribution lists/security groups do you want to check? "
 
