@@ -56,7 +56,7 @@ For /L %%i in (%DLSI%,1,%DLEI%) do (
 
                                 rem checks to see if the user is a member of a specified group
 
-                                for /f %%f in ('"net user !UsrArray[%%A]! /domain | findstr /l !DLArray[%%i]!"') do set /a i=!i!+1
+                                for /f %%f in ('"net user !UsrArray[%%A]! /domain | findstr /l "!DLArray[%%i]!""') do set /a i=!i!+1
 
                                 rem outputs if the user is in the group or not.
 
