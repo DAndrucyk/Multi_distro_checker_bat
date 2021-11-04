@@ -3,11 +3,6 @@ Batch file to check multiple users are in multiple security groups,
 
 ## Known issues
 - Distribution/security groups can only have 25 characters for the compairison
-- Tool may bring back false positives if the group name has other groups that start with the same name
-  - Example:
-  - If you are checking permissions on Group_Test, you may get a false positive if there is a group called Group_Test_Admins
-  - If the user is in Group_Test_Admins and not in Group_Test, you may get a false positive
-  - The script checks for the name Group_Test (in this example) and will see both groups and check both groups
 
 ## Installation
 - Download the batch file to a location of your choice.
