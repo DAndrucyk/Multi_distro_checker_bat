@@ -50,17 +50,13 @@ For /L %%i in (%DLSI%,1,%DLEI%) do (
 
                 for /L %%A in (!UsrSI!,1,!UsrEI!) DO (
 
-                                rem i is just a variable to toggle yes or no for the compairison
-
-                                set i=0
-
                                 rem checks to see if the user is a member of a specified group
 
-                                for /f %%f in ('"net user !UsrArray[%%A]! /domain | findstr /x "!DLArray[%%i]!""') do set /a i=!i!+1
-
+                                for /f %%f in ('"dsquery user -samid !UsrArray[%%A]! | dsget user -memberof | dsget group -samid |findstr /m "!DLArray[%%i]!""')  do set i=%%f
+                                
                                 rem outputs if the user is in the group or not.
 
-                                if !i!==1 (echo !UsrArray[%%A]! is a member of !DLArray[%%i]!) ELSE (echo !UsrArray[%%A]! is not a member of !DLArray[%%i]!)
+                                if !i!==!DLArray[%%i]! (echo !UsrArray[%%A]! is a member of !DLArray[%%i]!) ELSE (echo !UsrArray[%%A]! is not a member of !DLArray[%%i]!)
 
                 )
 
