@@ -50,6 +50,8 @@ For /L %%i in (%DLSI%,1,%DLEI%) do (
 
                 for /L %%A in (!UsrSI!,1,!UsrEI!) DO (
 
+                                set i=
+                                
                                 rem checks to see if the user is a member of a specified group
 
                                 for /f %%f in ('"dsquery user -samid !UsrArray[%%A]! | dsget user -memberof | dsget group -samid |findstr /m "!DLArray[%%i]!""')  do set i=%%f
@@ -69,6 +71,8 @@ set /P clsscreen="Clear screen? (y/n) "
 rem clears screen if the previous prompt was answered with y
 
 if "%clsscreen%"=="y" (cls)
+
+set clsscreen=
 
 rem loops back to start to allow for repeated compairisons.
 
